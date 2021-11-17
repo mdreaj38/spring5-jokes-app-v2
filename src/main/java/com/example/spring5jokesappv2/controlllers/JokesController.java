@@ -1,4 +1,4 @@
-package com.example.spring5jokesappv2;
+package com.example.spring5jokesappv2.controlllers;
 
 import com.example.spring5jokesappv2.services.JokesService;
 import org.springframework.stereotype.Controller;
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 11/17/21
  */
 @Controller
-public class controller {
+public class JokesController {
 
     private final JokesService jokesService;
 
-    public controller(JokesService jokesService) {
+    public JokesController(JokesService jokesService) {
         this.jokesService = jokesService;
     }
 
     @RequestMapping({"/", ""})
     public String showJoke(Model model) {
-        model.addAttribute("Joke", jokesService.getJoke());
+        model.addAttribute("joke", jokesService.getJoke());
         return "index";
     }
 }
