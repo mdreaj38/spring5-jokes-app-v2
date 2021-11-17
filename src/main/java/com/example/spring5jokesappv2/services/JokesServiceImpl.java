@@ -1,0 +1,23 @@
+package com.example.spring5jokesappv2.services;
+
+import guru.springframework.norris.chuck.ChuckNorrisQuotes;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author rejaul.reaj
+ * @since 11/17/21
+ */
+@Service
+public class JokesServiceImpl implements JokesService {
+
+    private final ChuckNorrisQuotes chuckNorrisQuotes;
+
+    public JokesServiceImpl() {
+        this.chuckNorrisQuotes = new ChuckNorrisQuotes();
+    }
+
+    @Override
+    public String getJoke() {
+        return chuckNorrisQuotes.getRandomQuote();
+    }
+}
